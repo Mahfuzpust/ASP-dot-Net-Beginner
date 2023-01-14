@@ -1,0 +1,44 @@
+
+Microsoft SQL Server Management Studio
+----->Sql connected process ----->
+
+terminal(cmd) – sqllocaldb create “name”
+ (localdb)\name
+
+
+---> appsettings.json--->
+
+"AllowedHosts": "*",
+  "ConnectionStrings": {
+    "DefaultSQLConnection": "Server=(localdb)\\MagicVilla;Database=MagicVilla;Trusted_Connection=True;MultipleActiveResultSets=true"
+  }
+  
+  ---> Data---> add --> class---> ApplicationDbContext.cs---->
+  
+  namespace MagicVilla_villaAPI.Data
+{
+    public class ApplicationDbContext : DbContext 
+    {
+        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
+        {
+
+        }
+        public DbSet<Villa> Villas { get; set; }
+    }
+}
+
+----> program.cs-=--->
+
+builder.Services.AddDbContext<ApplicationDbContext>(option =>
+{
+    option.UseSqlServer(builder.Configuration.GetConnectionString("DefaultSQLConnection"));
+});
+
+
+
+Tools--->Nuget Package Manager --->Package Manager Console
+----> Migrations Command in terminal ---->
+
+add-migration AnyName 
+example : [add-migration AddVillaTable]
+update-database
