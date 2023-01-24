@@ -1,0 +1,43 @@
+--->Create Folder--->
+
+Models-->DTO--->VillaDTO.cs
+
+----> VillaDTO.cs ---->
+
+    public class VillaDTO
+    {
+        public int Id { get; set; }
+        public string Name { get; set; }
+        
+    }
+
+
+--->Create Folder--->
+
+Data-->VillaStore.cs
+
+
+---> VillaAPIControlller.cs--->
+
+[Route("api/VillaAPI")]
+    [ApiController]
+    public class VillaAPIController : ControllerBase
+    {
+        [HttpGet]
+        public IEnumerable<VillaDTO> GetVillas()
+        {
+            return VillaStore.villaList;
+        }
+    }
+    
+--->VillaStore--->
+
+
+    public static class VillaStore
+    {
+        public static List<VillaDTO> villaList = new List<VillaDTO>
+            {
+                new VillaDTO{ Id = 1, Name = "pool view"},
+                new VillaDTO{ Id = 2, Name = "Beach view"}
+            };
+    }
