@@ -1,0 +1,8 @@
+---> For API created Project--->
+
+ASP .NET CORE Web API
+
+--> Controllers --> Add --> Class ---> ClassName(VillaAPIController.cs)
+
+---> Create Folder --->  Models ---> 
+-->Models ---> Add --> Class --> Villa.cs
