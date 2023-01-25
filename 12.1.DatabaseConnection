@@ -1,4 +1,10 @@
 --> Create Models
 --> Install package
 -->SQL Server 
-   --> create
+
+   terminal(cmd) – sqllocaldb create “name”
+   (localdb)\name
+
+--> Data/ApplicationDbContext.cs
+-->Program.cs
+-->Connected database
