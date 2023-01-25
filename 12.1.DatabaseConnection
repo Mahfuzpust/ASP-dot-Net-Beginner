@@ -5,6 +5,45 @@
    terminal(cmd) – sqllocaldb create “name”
    (localdb)\name
 
---> Data/ApplicationDbContext.cs
+--> create file -->  Data/ApplicationDbContext.cs
 -->Program.cs
 -->Connected database
+
+-->Tools--->Nuget Package Manager --->Package Manager Console
+----> Migrations Command in terminal ---->
+
+add-migration AnyName 
+example : [add-migration AddVillaTable]
+update-database
+
+-------------------------------------------------------------------------------------------
+
+-->VillaStore --> Deleted--->  Follow link ---> https://github.com/Mahfuzpust/MagicVillaAPI/commit/0eda665fbd2ac2034806ed15ef58244125aad51a
+
+private readonly ApplicationDbContext _db;
+        public VillaAPIController(ApplicationDbContext db)
+        {
+            _db = db;
+        }
+var villa = _db.Villas.FirstOrDefault(u => u.Id == id);
+if (_db.Villas.FirstOrDefault(u => u.Name.ToLower() == villaDTO.Name.ToLower())!=null)
+var villa = _db.Villas.FirstOrDefault(u => u.Id == id);
+
+ Villa model = new()
+            {
+                Id = villaDTO.Id,
+                Name = villaDTO.Name,
+                Details = villaDTO.Details,
+                Rate = villaDTO.Rate,
+                Sqft = villaDTO.Sqft,
+                Ocupancy = villaDTO.Ocupancy,
+                ImgUrl = villaDTO.ImgUrl,
+                Amenity = villaDTO.Amenity
+
+            };
+            _db.Villas.Update(model);
+            _db.SaveChanges();
+            
+  ----------------------------
+  --------------------------
+  -----------------------------------
